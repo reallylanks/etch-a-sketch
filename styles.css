@@ -1,0 +1,16 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 640px;
+    width: 640px;
+    border: 10px solid black;
+    color: blue;
+}
+
+.gridDiv {
+    height: 100px;
+    width: 100px;
+    border: 2px solid red;
+    margin: 0;
+}
+
