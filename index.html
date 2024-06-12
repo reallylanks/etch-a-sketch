@@ -12,20 +12,19 @@
 <script>
 const container = document.querySelector("#container");
 
-const numberOfDivs = 32;
+const numberOfDivs = 256;
 for (let i = 0; i < numberOfDivs; i++) {
     const newDiv = document.createElement("div");
     newDiv.className = "gridDiv";
     container.appendChild(newDiv);
  };
 
-
-createDiv();
-
-let consoleTest = 13
-console.log(i);
-
-
+/*const gridDiv = document.querySelectorAll(".gridDiv");
+gridDiv.forEach(div => {
+    div.addEventListener('mouseleave', function() {
+        myDiv.style.backgroundColor = 'black' 
+});
+});*/
 </script>
     
 </body>
