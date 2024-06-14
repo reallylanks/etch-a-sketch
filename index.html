@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button>Generate New Grid</button>
     <div id="container"></div>
 
 <script>
@@ -19,13 +20,15 @@ for (let i = 0; i < numberOfDivs; i++) {
     container.appendChild(newDiv);
  };
 
-/*const gridDiv = document.querySelectorAll(".gridDiv");
-gridDiv.forEach(div => {
-    div.addEventListener('mouseleave', function() {
-        myDiv.style.backgroundColor = 'black' 
+const grid = document.querySelectorAll(".gridDiv");
+grid.forEach(div => {
+    div.addEventListener('mouseenter', function() {
+        div.style.backgroundColor = 'black' 
 });
-});*/
+});
+// numberOfDivs should be userinput * userinput
+// how can I get indivudal grid square to occupy the same space in the div?
 </script>
-    
+
 </body>
 </html>
