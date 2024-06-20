@@ -12,22 +12,60 @@
 
 <script>
 const container = document.querySelector("#container");
+const button = document.querySelector('button');
+let numberOfDivs = 256;
+generateGrid();
 
-const numberOfDivs = 256;
-for (let i = 0; i < numberOfDivs; i++) {
+button.addEventListener('click', function() {
+    const userInput = prompt('Please enter a number from 1 - 100!');
+    const NumUserInput = Number(userInput);
+        if (isNaN(NumUserInput)) {
+            alert("Please enter a NUMBER between 1 - 100!");
+            return;
+        } 
+        else if (NumUserInput < 1 || NumUserInput > 100) {
+            alert( "Please enter a number BETWEEN 1 - 100!");
+            return;
+        }
+
+    // Loop that returns first node child and deletes
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+
+    numberOfDivs = NumUserInput * NumUserInput
+    generateGrid();
+
+    
+});
+
+function generateGrid() {
+    const gridSize = Math.sqrt(numberOfDivs);
+    console.log(`Generated grid with ${numberOfDivs} squares.`);
+
+    const divSize = 960 / gridSize
+    console.log(`divSize = ${divSize}.`); 
+
+    for (let i = 0; i < numberOfDivs; i++) {
     const newDiv = document.createElement("div");
-    newDiv.className = "gridDiv";
+    newDiv.className = "gridSquare";
+    newDiv.style.height = `${divSize}px`;
+    newDiv.style.width = `${divSize}px`;
     container.appendChild(newDiv);
- };
+    };
 
-const grid = document.querySelectorAll(".gridDiv");
-grid.forEach(div => {
+    const grid = document.querySelectorAll(".gridSquare");
+    grid.forEach(div => {
     div.addEventListener('mouseenter', function() {
         div.style.backgroundColor = 'black' 
-});
-});
-// numberOfDivs should be userinput * userinput
-// how can I get indivudal grid square to occupy the same space in the div?
+    });
+    });
+};
+
+console.log(`Generated grid with ${numberOfDivs} squares.`);
+// Something wrong with function as original grid isn't even generating properly
+//It's not wrapping
+// divSize is staying the same, no matter user input
 </script>
 
 </body>
