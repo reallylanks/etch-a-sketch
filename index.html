@@ -31,12 +31,10 @@ button.addEventListener('click', function() {
     // Loop that returns first node child and deletes
     while (container.firstChild) {
         container.removeChild(container.firstChild);
-    }
+    };
 
     numberOfDivs = NumUserInput * NumUserInput
     generateGrid();
-
-    
 });
 
 function generateGrid() {
@@ -44,21 +42,25 @@ function generateGrid() {
     console.log(`Generated grid with ${numberOfDivs} squares.`);
 
     const divSize = 960 / gridSize
-    console.log(`divSize = ${divSize}.`); 
 
     for (let i = 0; i < numberOfDivs; i++) {
-    const newDiv = document.createElement("div");
-    newDiv.className = "gridSquare";
-    newDiv.style.height = `${divSize}px`;
-    newDiv.style.width = `${divSize}px`;
-    container.appendChild(newDiv);
+        const newDiv = document.createElement("div");
+        newDiv.className = "gridSquare";
+        newDiv.style.height = `${divSize}px`;
+        newDiv.style.width = `${divSize}px`;
+        newDiv.style.opacity = '1';
+        container.appendChild(newDiv);
     };
 
     const grid = document.querySelectorAll(".gridSquare");
     grid.forEach(div => {
     div.addEventListener('mouseenter', function() {
-        div.style.backgroundColor = getRandomColor(); 
-    });
+        div.style.backgroundColor = getRandomColor();
+        const currentOpacity = parseFloat(div.style.opacity);
+        if (currentOpacity > 0) {
+            div.style.opacity = currentOpacity - 0.1
+        };   
+        });
     });
 };
 
@@ -69,11 +71,7 @@ function getRandomColor() {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-}
-
-console.log(`Generated grid with ${numberOfDivs} squares.`);
-// Working grid and button! 
-//Extra credit next
+};
 </script>
 
 </body>

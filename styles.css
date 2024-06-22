@@ -4,14 +4,14 @@
     flex-wrap: wrap;
     width: 960px;
     height: 960px;
-    box-sizing: border-box;
+    background-color: black;
 }
 
 .gridSquare {
     border: 1px solid black;
     margin: 0;
-    /* Ensures the padding and border are included in the
-    square's total width and height */
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensures the padding and border are included in the square's total width and height */
+    background-color: white;
+   
 }
 
