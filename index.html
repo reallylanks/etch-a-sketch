@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button>Generate New Grid</button>
+    <button class="button">Generate New Grid</button>
     <div id="container"></div>
 
 <script>
@@ -57,15 +57,23 @@ function generateGrid() {
     const grid = document.querySelectorAll(".gridSquare");
     grid.forEach(div => {
     div.addEventListener('mouseenter', function() {
-        div.style.backgroundColor = 'black' 
+        div.style.backgroundColor = getRandomColor(); 
     });
     });
 };
 
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#'
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 console.log(`Generated grid with ${numberOfDivs} squares.`);
-// Something wrong with function as original grid isn't even generating properly
-//It's not wrapping
-// divSize is staying the same, no matter user input
+// Working grid and button! 
+//Extra credit next
 </script>
 
 </body>
